@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <format>
 #include <sstream>
+#include <iostream>
 
 
 namespace vsite::oop::v6
@@ -18,12 +19,12 @@ namespace vsite::oop::v6
 				return false;
 			}
 		}
+		return true;
 	}
 }
 
 /*-------------------test 2----------------------------*/
 
-py::package::~package(){};
 
 std::string numpy::name() const { return "NumPy"; }
 std::string numpy::version() const { return "1.23.5"; }
@@ -35,7 +36,18 @@ int numpy::year() const { return 2022; }
 
 rectangle::rectangle(int x1, int y1, int x2, int y2) { _x1 = x1, _y1 = y1, _x2 = x2, _y2 = y2; }
 rectangle::~rectangle() {};
-std::string rectangle::print() const {
-
+void rectangle::print(std::ostream& input) const {
+	input << std::format("({},{}) - ({},{})", _x1, _y1, _x2, _y2);
 };
 
+rectangle& rectangle::move(int x, int y) {
+	_x1 += x;
+	_x2 += x;
+	_y1 += y;
+	_y2 += y;
+
+	return *this;
+}
+
+
+point::point(int xp, int yp) { x = xp, y = yp; }

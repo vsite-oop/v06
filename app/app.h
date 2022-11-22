@@ -37,8 +37,16 @@ class rectangle {
 public:
 	rectangle(int x1, int y1, int x2, int y2);
 	virtual ~rectangle();
-	virtual std::string print() const;
-	void move(int x, int y);
+	virtual void print(std::ostream& input) const;
+	rectangle& move(int x, int y);
+};
+
+
+class point {
+	int x, y = 0;
+public:
+	point(int xp, int yp);
+	
 };
 
 
