@@ -14,9 +14,9 @@ namespace vsite::oop::v6
       return true;
     }
 
-    std::string name(){return "NumPy";}
-    std::string version(){return "1.23.5";}
-    int year(){return 2022;}
+    std::string numpy::name()const{return "NumPy";}
+    std::string numpy::version()const{return "1.23.5";}
+    int numpy::year()const{return 2022;}
 
     
     
@@ -55,7 +55,7 @@ namespace vsite::oop::v6
         ++i;
 
    }
-   double polygon::distance(point& a,point& b){
+    double polygon::distance(const point& a,const point& b){
     double x=b.x-a.x;
     double y=b.y-a.y;
 

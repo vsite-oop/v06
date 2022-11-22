@@ -11,9 +11,9 @@ namespace vsite::oop::v6
         class package{
 
          public:
-           virtual std::string name()=0;
-           virtual std::string version()=0;
-           virtual int year()=0;
+           virtual std::string name()const=0;
+           virtual std::string version()const=0;
+           virtual int year()const=0;
            virtual ~package()=default;
            
 
@@ -22,9 +22,9 @@ namespace vsite::oop::v6
         };
     }
     class numpy:public py::package{
-           std::string name ()override;
-           std::string version()override;
-           int year()override;
+           std::string name ()const override;
+           std::string version()const override;
+           int year()const override;
 
 
 
@@ -52,7 +52,7 @@ namespace vsite::oop::v6
       int i;
       unsigned int arr_size;
       point* p;
-      double distance(point& a,point& b);
+      static double distance(const point& a,const point& b);
       public:
        polygon(unsigned int a);
        polygon(const polygon& other);
