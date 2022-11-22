@@ -41,18 +41,18 @@ namespace all_tests
 		{
 			std::stringstream ss1;
 			rectangle r(0, 0, 20, 20);
-			r.print(ss1);
+			r.print();
 			Assert::AreEqual("(0,0) - (20,20)"s, ss1.str());
 			r.move(10, 0);
 			std::stringstream ss2;
-			r.print(ss2);
+			r.print();
 			Assert::AreEqual("(10,0) - (30,20)"s, ss2.str());
 			r.move(0, 20);
 			std::stringstream ss3;
-			r.print(ss3);
+			r.print();
 			Assert::AreEqual("(10,20) - (30,40)"s, ss3.str());
 			std::stringstream ss4;
-			r.move(5, 5).print(ss4);
+			r.move(5, 5).print();
 			Assert::AreEqual("(15,25) - (35,45)"s, ss4.str());
 		}
 
