@@ -25,7 +25,7 @@ namespace all_tests
 			const std::string cards4[] { "CA", "HA", "SA", "DA", "CK" };
 			Assert::IsFalse(is_flush(cards4, 5));
 		}
-
+		
 		TEST_METHOD(test_py_package)
 		{
 			Assert::IsTrue(std::is_abstract_v<py::package>);
@@ -36,7 +36,7 @@ namespace all_tests
 			Assert::AreEqual("1.23.5"s, pkg.version());
 			Assert::AreEqual(2022, pkg.year());
 		}
-
+		
 		TEST_METHOD(test_rectangle)
 		{
 			std::stringstream ss1;
@@ -55,7 +55,7 @@ namespace all_tests
 			r.move(5, 5).print(ss4);
 			Assert::AreEqual("(15,25) - (35,45)"s, ss4.str());
 		}
-
+		
 		TEST_METHOD(test_polygon)
 		{
 			point p{ 1,2 };
@@ -68,7 +68,7 @@ namespace all_tests
 			p1.add({ 10, 10 });
 			p1.add({  0, 10 });
 			Assert::AreEqual(40., p1.perimeter());
-
+			
 			polygon p2(3);
 			p2.add({ 1, 1 });
 			p2.add({ 3, 1 });
