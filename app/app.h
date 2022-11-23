@@ -42,11 +42,22 @@ public:
 };
 
 
-class point {
-	int x, y = 0;
+/*----------------------------test 4-------------------------------*/
+struct point {
+	int x;
+	int y;
+};
+
+class polygon {
+	int sides = 0;
+	int position = 0;
+	point* p;
 public:
-	point(int xp, int yp);
-	
+	polygon(int s);
+	polygon(const polygon& poly);
+	void add(point p);
+	double perimeter();
+	~polygon();
 };
 
 

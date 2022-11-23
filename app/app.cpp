@@ -32,7 +32,7 @@ int numpy::year() const { return 2022; }
 
 
 
-/*--------------------------test 4-----------------------------*/
+/*--------------------------test 3-----------------------------*/
 
 rectangle::rectangle(int x1, int y1, int x2, int y2) { _x1 = x1, _y1 = y1, _x2 = x2, _y2 = y2; }
 rectangle::~rectangle() {};
@@ -50,4 +50,37 @@ rectangle& rectangle::move(int x, int y) {
 }
 
 
-point::point(int xp, int yp) { x = xp, y = yp; }
+/*--------------------------test 4-----------------------------*/
+polygon::polygon(int s) { 
+	sides = s; 
+	p = new point{ sides };
+}
+
+polygon::polygon(const polygon& poly) {
+	sides = poly.sides;
+	position = poly.position;
+	p = new point{ poly.sides };
+}
+
+polygon::~polygon(){
+	delete[] p;
+}
+
+void polygon::add(point pp) {
+	p[position] = pp;
+	position++;
+}
+
+double polygon::perimeter() {
+	double perimeter_sum = 0;
+	for (int i = 0; i < sides; ++i) {
+		point& a = p[i];
+		point& b = i + 1 < sides ? p[i + 1] : p[0];
+		perimeter_sum += std::sqrt((std::pow((b.x - a.x), 2)) + (std::pow((b.y - a.y), 2)));
+	}
+
+	return perimeter_sum;
+}
+
+
+
