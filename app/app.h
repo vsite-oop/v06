@@ -24,7 +24,6 @@ namespace vsite::oop::v6
 		std::string name() const override;
 		std::string version() const override;
 		int year() const override;
-		~numpy() override { };
 	};
 
 	class rectangle
@@ -40,9 +39,7 @@ namespace vsite::oop::v6
 
 	struct point
 	{
-	public:
 		int x, y;
-
 	};
 
 	class polygon
@@ -51,10 +48,12 @@ namespace vsite::oop::v6
 		int size;
 		int pointCount = 0;
 
-		point* points;
+		point* points = nullptr;
 
 	public:
 		polygon(int size);
+		/*polygon(const polygon& other);
+		~polygon();*/
 
 		void add(const point& newPoint);
 		double perimeter();

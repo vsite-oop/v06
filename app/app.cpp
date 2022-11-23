@@ -1,7 +1,6 @@
 #include "app.h"
 #include <algorithm>
 #include <sstream>
-//#include <numbers>
 
 namespace vsite::oop::v6
 {
@@ -53,6 +52,20 @@ namespace vsite::oop::v6
 	polygon::polygon(int size) :
 		size(size), points(new point[size]) { }
 
+	/*polygon::polygon(const polygon& other) :
+		size(other.size), points(new point[other.size])
+	{
+		for (int i = 0; i < other.size; i++)
+		{
+			points[i] = other.points[i];
+		}
+	}
+
+	polygon::~polygon()
+	{
+		delete[] points;
+	}*/
+
 	void polygon::add(const point& newPoint)
 	{
 		points[pointCount] = newPoint;
@@ -64,12 +77,13 @@ namespace vsite::oop::v6
 		double peri = 0;
 		for (int i = 0; i < pointCount; i++)
 		{
-			point a = points[i]; // 0, 1, 2, 3
-			point b = i+1 >= pointCount? points[0] : points[i+1]; // 1, 2, 3, 0
+			point& a = points[i]; // 0, 1, 2, 3
+			point& b = i+1 >= pointCount? points[0] : points[i+1]; // 1, 2, 3, 0
 
-			double current_side = sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+			double current_side = hypot(b.x - a.x, b.y - a.y);
 			peri += current_side;
 		}
+
 		return peri;
 	}
 }
