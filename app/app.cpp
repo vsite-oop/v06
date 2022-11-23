@@ -52,10 +52,10 @@ namespace vsite::oop::v6
 	polygon::polygon(int size) :
 		size(size), points(new point[size]) { }
 
-	/*polygon::polygon(const polygon& other) :
-		size(other.size), points(new point[other.size])
+	polygon::polygon(const polygon& other) :
+		size(other.size), pointCount(other.pointCount), points(new point[other.size])
 	{
-		for (int i = 0; i < other.size; i++)
+		for (int i = 0; i < size; i++)
 		{
 			points[i] = other.points[i];
 		}
@@ -64,7 +64,7 @@ namespace vsite::oop::v6
 	polygon::~polygon()
 	{
 		delete[] points;
-	}*/
+	}
 
 	void polygon::add(const point& newPoint)
 	{
