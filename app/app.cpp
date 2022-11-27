@@ -53,17 +53,21 @@ rectangle& rectangle::move(int x, int y) {
 /*--------------------------test 4-----------------------------*/
 polygon::polygon(int s) { 
 	sides = s; 
-	p = new point{ sides };
+	p = new point[sides];
 }
 
 polygon::polygon(const polygon& poly) {
 	sides = poly.sides;
 	position = poly.position;
-	p = new point{ poly.sides };
+	p = new point[poly.sides];
+	for (int i = 0; i < position; ++i) {
+		p[i] = poly.p[i];
+	}
 }
 
 polygon::~polygon(){
 	delete[] p;
+	p = nullptr;
 }
 
 void polygon::add(point pp) {
@@ -73,11 +77,16 @@ void polygon::add(point pp) {
 
 double polygon::perimeter() {
 	double perimeter_sum = 0;
-	for (int i = 0; i < sides; ++i) {
+	int i = 0;
+	while (i < sides - 1) {
 		point& a = p[i];
-		point& b = i + 1 < sides ? p[i + 1] : p[0];
+		point& b = p[i+1];
 		perimeter_sum += std::sqrt((std::pow((b.x - a.x), 2)) + (std::pow((b.y - a.y), 2)));
+		++i;
 	}
+	point& a = p[i];
+	point& b = p[0];
+	perimeter_sum += std::sqrt((std::pow((b.x - a.x), 2)) + (std::pow((b.y - a.y), 2)));
 
 	return perimeter_sum;
 }
