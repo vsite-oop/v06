@@ -9,18 +9,18 @@ using namespace vsite::oop::v6;  // I added this.
 
 int main()
 {
-	std::cout << "Unesite broj tocaka poligona:\n";
+	std::cout << "Insert number of vertices:\n";
 	int points;
 	std::cin >> points;  // No. of points in a polygon.
 
 	polygon polygon_1(points);
 
 	for (int i = 0; i < points; i++) {
-		std::cout << std::format("Unesite {}. tocku poligona (x y):\n", i+1);
+		std::cout << std::format("Insert {}. vertex (x y):\n", i+1);
 		point input_point;
 		std::cin >> input_point.x >> input_point.y;
 		polygon_1.add(input_point);
 	}
 
-	std::cout << std::format("Opseg zadanog poligona je:\n{}\n", polygon_1.perimeter());
+	std::cout << std::format("Perimeter of a given polygon is:\n{}\n", polygon_1.perimeter());
 }
