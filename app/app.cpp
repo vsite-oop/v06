@@ -32,7 +32,7 @@ namespace vsite::oop::v6
         return *this;
     }
     void rectangle::print(std::ostream& ss)const{
-        ss<<"("<<x1<<","<<y1<<")  -  ("<<x2<<","<<y2<<")";
+        ss<<"("<<x1<<","<<y1<<") - ("<<x2<<","<<y2<<")";
     }
 
 
@@ -56,14 +56,14 @@ namespace vsite::oop::v6
 
    }
     double polygon::distance(const point& a,const point& b){
-    double x=b.x-a.x;
-    double y=b.y-a.y;
+         double x=b.x-a.x;
+         double y=b.y-a.y;
 
-    return hypot(x,y);
+    return std::hypot(x,y);
 
    }
-   double polygon::perimeter(){
-       double o=distance(p[i-1],p[0]);
+   double polygon::perimeter()const{
+       auto o=distance(p[i-1],p[0]);
        for(int j=0;j<i-1;++j)o+=distance(p[i],p[i+1]);
 
       return o;
