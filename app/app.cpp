@@ -50,16 +50,14 @@ namespace vsite::oop::v6
         delete[] p;
         p=nullptr;
     }
-   void polygon::add(point p1){
+   void polygon::add(const point& p1){
        p[i]=p1;
         ++i;
 
    }
     double polygon::distance(const point& a,const point& b){
-         double x=b.x-a.x;
-         double y=b.y-a.y;
-
-    return std::hypot(x,y);
+        
+     return std::hypot(b.x-a.x,b.y-a.y);
 
    }
    double polygon::perimeter()const{

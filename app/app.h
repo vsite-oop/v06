@@ -57,7 +57,7 @@ namespace vsite::oop::v6
        polygon(unsigned int a);
        polygon(const polygon& other);
        ~polygon();
-       void add(point p);
+       void add(const point& p);
        double perimeter()const;
 
    };
