@@ -55,7 +55,7 @@ namespace all_tests
 			r.move(5, 5).print(ss4);
 			Assert::AreEqual("(15,25) - (35,45)"s, ss4.str());
 		}
-		/*
+		
 		TEST_METHOD(test_polygon)
 		{
 			point p{ 1,2 };
@@ -77,6 +77,6 @@ namespace all_tests
 
 			polygon p3 = p1;
 			Assert::AreEqual(40., p3.perimeter());
-		}*/
+		}
 	};
 }

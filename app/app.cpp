@@ -37,4 +37,36 @@ namespace vsite::oop::v6
 
 		return *this;
 	}
+
+	polygon::polygon(int n) : p(new point[n]), n(0) {};
+	polygon::polygon(const polygon& p2) : p(new point[p2.n]), n(p2.n) {
+		for (auto i = 0; i < n; ++i) {
+			p[i] = p2.p[i];
+		}
+	}
+
+	polygon::~polygon() {
+		delete[] p;
+	}
+
+	void polygon::add(const point& add_p) {
+		p[n++] = add_p;
+	}
+
+	double distance(const point& t1, const point& t2) {
+		int tx = t2.x - t1.x;
+		int ty = t2.y - t1.y;
+
+		double d = sqrt((tx * tx) + (ty * ty));
+		return d;
+	}
+	double polygon::perimeter() {
+		double perimeter = 0;
+		perimeter = distance(p[n - 1], p[0]);
+		for (auto i = 0; i < n - 1; ++i) {
+			perimeter += distance(p[i], p[i + 1]);
+		}
+
+		return perimeter;
+	}
 }

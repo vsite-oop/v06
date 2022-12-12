@@ -30,4 +30,25 @@ namespace vsite::oop::v6
 		void print(std::stringstream& ss);
 		rectangle& move(int k1, int k2);
 	};
+
+	struct point {
+		int x, y;
+	};
+
+	class polygon {
+		int n;
+		point* p;
+
+	public:
+		polygon(int n);
+		polygon(const polygon& p2);
+
+		~polygon();
+
+		void add(const point& add);
+		double perimeter();
+
+	};
+
+	double distance(const point& t1, const point& t2);
 }
