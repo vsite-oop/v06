@@ -62,7 +62,7 @@ namespace vsite::oop::v6
    }
    double polygon::perimeter()const{
        auto o=distance(p[i-1],p[0]);
-       for(int j=0;j<i-1;++j)o+=distance(p[i],p[i+1]);
+       for(int j=0;j<i-1;++j)o+=distance(p[j],p[j+1]);
 
       return o;
 
