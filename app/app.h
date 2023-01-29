@@ -41,8 +41,8 @@ namespace vsite::oop::v6
     };
 
     class polygon {
-        point* points;
         int pointsAdded = 0;
+        point* points;
     public:
         polygon(const int size);
         ~polygon();
