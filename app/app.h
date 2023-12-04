@@ -52,5 +52,6 @@ namespace vsite::oop::v6
 
     private:
         point<T> data[30];
+
     };
 }
